@@ -69,14 +69,13 @@ However, according to Java standards and design patterns, we need to add several
 
 In this instance, if a proper logging is required, then that means a logger needs to be added. And the simple and straightforward code becomes an ugly mess that may not be necessary. 
 <details>
-  <summary>
+  <summary>Click to see the code</summary>
 {% highlight java %}
 public class Customer {
     private static final Logger logger = LogManager.getLogger(Customer.class);
     private Integer id;
     private String customerName;
     private Double customerBalance;
-	</summary>
     private LocalDateTime customerActivated;
 
     public Customer(Integer id, String customerName, Double customerBalance, LocalDateTime customerActivated) {
@@ -149,7 +148,7 @@ public boolean isPrivilegedCustomer(Double requiredBalance) {
     }
 }
 {% endhighlight %}
-	</details>
+</details>
 # Project Lombok
 
 First, let’s look at existing solutions. One such helpful tool is Project Lombok; it’s a framework that can greatly decrease the size of your code. The main idea of Lombok is in its usage of annotations. 
