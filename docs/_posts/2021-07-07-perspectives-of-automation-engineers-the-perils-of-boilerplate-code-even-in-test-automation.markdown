@@ -2,6 +2,7 @@
 layout: post
 title: "Perspectives of Automation Engineers: The Perils of Boilerplate code, even in test automation"
 date: 2021-07-07 13:40:00 -0000
+permalink: /2021-07-07-perspectives-of-automation-engineers-the-perils-of-boilerplate-code-even-in-test-automation/
 categories: java lombok
 ---
 
