@@ -1,10 +1,11 @@
 ---
 layout: post
 title: "Perspectives of Automation Engineers: The Perils of Boilerplate code, even in test automation"
-date:   2021-07-07 14:40:30 -0400
-categories: java lombok
+date:   2020-07-01 14:40:30 -0400
+categories: java
+tags: java lombok
 ---
-![](/assets/java_code_top.webp)
+![](/docs/images/java_code_top.webp)
 Danny Briskin, QA Consultants Senior Automation Engineer
 July 2020
 
