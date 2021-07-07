@@ -26,7 +26,7 @@ github_username:  danny-briskin
 
 # Build settings
 markdown: kramdown
-theme: minima
+theme: jekyll-theme-modernist
 plugins:
   - jekyll-feed
   
