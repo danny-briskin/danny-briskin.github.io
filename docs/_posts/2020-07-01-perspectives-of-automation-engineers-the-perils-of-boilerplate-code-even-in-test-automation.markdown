@@ -5,7 +5,7 @@ date:   2020-07-01 14:40:30 -0400
 categories: java
 tags: java lombok
 ---
-![](images/java_code_top.webp)
+![](/images/java_code_top.webp)
 Danny Briskin, QA Consultants Senior Automation Engineer
 July 2020
 
