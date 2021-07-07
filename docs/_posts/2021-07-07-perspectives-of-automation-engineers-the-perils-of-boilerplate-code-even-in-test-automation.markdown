@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "POST TITLE"
-date: YYYY-MM-DD hh:mm:ss -0000
+title: "Perspectives of Automation Engineers: The Perils of Boilerplate code, even in test automation"
+date: 2021-07-07 13:40:00 -0000
 categories: java lombok
 ---
 
