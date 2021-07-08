@@ -29,7 +29,7 @@ markdown: kramdown
 theme: bulma-clean-theme
 plugins:
   - jekyll-feed
-  
+  - jekyll-seo-tag
 defaults:
   - scope:
       path: "images"
