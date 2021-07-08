@@ -37,6 +37,7 @@ Useful links
 
 Aspect
 : A modularization of a concern that cuts across multiple objects. Each aspect focuses on a specific crosscutting functionality. A good example of aspect is logging. You need the same logging functionality everywhere in the app.
+
 Join point
 : A point during the execution of a script, such as the execution of a method or property access. A place where advice code will be inserted. It can be
 
@@ -79,6 +80,7 @@ public void pointcutOne() {
 {% endhighlight %}
 
 The code in @Pointcut annotation means: run weaved code when a method is executed. Find all methods with any visibility (first asterisk) of *org.example.core package*, in any of package class (first two dots ..), any method name (second asterisk), any number and type of method parameters (second two dots).
+
 **Important!**
 Don’t place Aspect class in the same package(s) where you want aspects’ code to be weawed. It will lead to stack overflow exception (because methods will call itself to be weawed to itself and so on… )
 
@@ -137,10 +139,8 @@ And do the logging
 LOGGER.log(LOGGING_LEVEL, () -> "[>>] " + methodName + "(" + Arrays.toString(arguments) + ")");
 {% endhighlight %}
  This advice will log a method name with parameters right before the method execution
-* After join point
-Work with @After join point is the same as with @Before, the only difference is in place of weaving – it will in the end of method rather than beginning.
-* AfterReturning join point
-There is a little difference in using @AfterRuturning join point. Usually it is used for methods returning a value (i.e. not void return type). 
+* After join point. Work with @After join point is the same as with @Before, the only difference is in place of weaving – it will in the end of method rather than beginning.
+* AfterReturning join point. There is a little difference in using @AfterRuturning join point. Usually it is used for methods returning a value (i.e. not void return type). 
 {% highlight java %}
 @AfterReturning(value = "pointcutExecutionFramework() && ! noLog()", returning = "result")
 public void afterReturningLog(JoinPoint joinPoint, Object result) { 
@@ -161,8 +161,7 @@ public void afterReturningLog(JoinPoint joinPoint, Object result) {
                         , signature.getDeclaringType().getSimpleName()
                         , signature.getName());} 
 {% endhighlight %}
-* Around join point
-A combination of @Before and @After join points is @Around join point. 
+* Around join point. A combination of @Before and @After join points is @Around join point. 
 {% highlight java %}
 @Around(value = "replaceAop()")
 public Object aroundReplace(ProceedingJoinPoint proceedingJoinPoint)  {
@@ -182,8 +181,7 @@ public Object aroundReplace(ProceedingJoinPoint proceedingJoinPoint)  {
     return null;
 }  
 {% endhighlight %}
-* AfterThrowing join point
-And the last annotation I would like to mention, is @AfterThrowing. This one is used for manipulation of methods that throw exceptions. It looks like **@SneakyThrows** from [Lombok](https://projectlombok.org/features/SneakyThrows). The value of **throwing** parameter of the annotaion is the name of Throwable argument of the advice method. 
+* AfterThrowing join point. And the last annotation I would like to mention, is @AfterThrowing. This one is used for manipulation of methods that throw exceptions. It looks like **@SneakyThrows** from [Lombok](https://projectlombok.org/features/SneakyThrows). The value of **throwing** parameter of the annotaion is the name of Throwable argument of the advice method. 
 {% highlight java %}
 @AfterThrowing(value = "pointcutExecutionFramework()", throwing = "e")
 public void afterThrowingFramework(JoinPoint joinPoint, Throwable e) { 
