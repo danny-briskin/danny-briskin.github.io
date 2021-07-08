@@ -159,6 +159,7 @@ $ContentRoot$
 ```
 $ContentRoot$
 ```
+
 - You run configuration in Before launch section will look like (in case of 2 configured steps):
 ![Settings](/images/ajc-06.webp)
 
