@@ -87,7 +87,7 @@ The code in @Pointcut annotation means: run weaved code when a method is execute
 Don’t place Aspect class in the same package(s) where you want aspects’ code to be weawed. It will lead to stack overflow exception (because methods will call itself to be weawed to itself and so on… )
 
 <details>
-  <summary>Expand to see other examples of pointcuts</summary> 
+  <summary> **Expand to see other examples of pointcuts**</summary> 
 Another (more complicated) pointcut
 {% highlight java %}
   @Pointcut("execution(* org.example.core..*(..)) && ! execution(* *.toBuilder(..))")
@@ -122,6 +122,7 @@ public void replaceAop() {
 </details>
 ## Advices/Joint points
 Let’s define an advice with join point
+
 ### Before join point 
 {% highlight java %}
 @Before("pointcutExecutionFramework() && ! noLog()")
@@ -142,8 +143,10 @@ And do the logging
 LOGGER.log(LOGGING_LEVEL, () -> "[>>] " + methodName + "(" + Arrays.toString(arguments) + ")");
 {% endhighlight %}
  This advice will log a method name with parameters right before the method execution
+ 
 ### After join point
 Work with @After join point is the same as with @Before, the only difference is in place of weaving – it will in the end of method rather than beginning.
+
 ### AfterReturning join point
 There is a little difference in using @AfterRuturning join point. Usually it is used for methods returning a value (i.e. not void return type). 
 {% highlight java %}
@@ -166,6 +169,7 @@ public void afterReturningLog(JoinPoint joinPoint, Object result) {
                         , signature.getDeclaringType().getSimpleName()
                         , signature.getName());} 
 {% endhighlight %}
+
 ### Around join point
 A combination of @Before and @After join points is @Around join point. 
 {% highlight java %}
@@ -187,6 +191,7 @@ public Object aroundReplace(ProceedingJoinPoint proceedingJoinPoint)  {
     return null;
 }  
 {% endhighlight %}
+
 ### AfterThrowing join point
 And the last annotation I would like to mention, is @AfterThrowing. This one is used for manipulation of methods that throw exceptions. It looks like **@SneakyThrows** from [Lombok](https://projectlombok.org/features/SneakyThrows). The value of **throwing** parameter of the annotaion is the name of Throwable argument of the advice method. 
 {% highlight java %}
