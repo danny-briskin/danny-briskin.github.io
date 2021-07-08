@@ -127,33 +127,26 @@ This part of setup is for projects that are not using any build system like Mave
     - Specify cleaning step (delete output directory)
 ![Settings](/images/ajc-07.webp)
 
-    - Program 
+    - Program
 ```
 /bin/rm
 ```
-
-    - Arguments 
-    
+    - Arguments
 ```
 -rf $OutputPath$
 ```
-
     - Working directory 
-    
 ```
 $ContentRoot$
 ```
-- Add Before launch step (should be after delete output directory step, if you have added it) , choose Run External Tool, click [+] (add new tool) 
+- Add Before launch step (should be after delete output directory step, if you have added it) , choose Run External Tool, click [+] (add new tool)
     - Specify ajc compiler step
 ![Settings](/images/ajc-08.webp)
-    - Program – path to ajc executable (in bin directory of installed AspectJ). It will be *ajc* for Unix-like systems or *ajc.bat* for Windows
-    
+    - Program – path to ajc executable (in bin directory of installed AspectJ). It will be *ajc* for Unix-like systems or *ajc.bat* for Windows   
     - Arguments (assuming java version is 8)
-    
-```
+{% highlight bash %}
 -cp "$Classpath$" -1.8 -Xlint:ignore -showWeaveInfo -sourceroots $Sourcepath$ -d $OutputPath$
-```
-
+{% endhighlight %}
     - Working directory 
     
 ```
