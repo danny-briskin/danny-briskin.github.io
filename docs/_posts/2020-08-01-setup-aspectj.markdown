@@ -38,7 +38,7 @@ Optionally you can install Intellij plugin ([AspectJ weaver](https://plugins.jet
 Following steps are for Maven project, you can do the same with Gradle if you are familiar with that build system.
 AspectjJ setup for a Maven project in Community Idea is a bit more complicated but is still easy to apply.
 
-* Add a dependency to pom.xml 
+- Add a dependency to pom.xml 
 {% highlight xml %}
 <dependency>
     <groupId>org.aspectj</groupId>
@@ -46,7 +46,7 @@ AspectjJ setup for a Maven project in Community Idea is a bit more complicated b
     <version>1.9.5</version>
 </dependency> 
 {% endhighlight %}
-* Add an aspectj-maven-plugin to your build/plugins section. This plugin will execute ajc compiler prior to java compiler 
+- Add an aspectj-maven-plugin to your build/plugins section. This plugin will execute ajc compiler prior to java compiler 
 {% highlight xml %}
 <plugin>
     <groupId>org.codehaus.mojo</groupId>
@@ -78,7 +78,7 @@ AspectjJ setup for a Maven project in Community Idea is a bit more complicated b
     </dependencies>
 </plugin> 
 {% endhighlight %}
-* Add maven-resources-plugin to your build/plugins section. This plugin is needed to copy resources to target directory 
+- Add maven-resources-plugin to your build/plugins section. This plugin is needed to copy resources to target directory 
 {% highlight xml %}
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
@@ -105,52 +105,61 @@ AspectjJ setup for a Maven project in Community Idea is a bit more complicated b
     </executions>
  </plugin>
 {% endhighlight %}
-* Create a Run Configuration. It may be a copy of your existing configuration.
+- Create a Run Configuration. It may be a copy of your existing configuration.
 ![Settings](/images/ajc-03.webp)
-* Add a Before launch step, choose Run Maven Goal and enter
+- Add a Before launch step, choose Run Maven Goal and enter
 ```
 clean validate aspectj:compile
 ```
 clean goal will clean target directory, validate will copy resources from src to target, and aspectj:compile will weave aspects into code
-* Run the project using that configuration
+- Run the project using that configuration
 
 ## Non-Maven(Gradle) project
 This part of setup is for projects that are not using any build system like Maven or Gradle (i.e., build is done by java compiler only)
-* Make sure that you have installed AspectJ
-* Add AspectJ libraries to the project to be able to use aspects (aspectjrt, aspectjtools, aspectjweaver, all can be found in 
+- Make sure that you have installed AspectJ
+- Add AspectJ libraries to the project to be able to use aspects (aspectjrt, aspectjtools, aspectjweaver, all can be found in 
 ```
 {your-path-to-aspectj}/lib directory)
 ```
 ![Settings](/images/ajc-09.webp)
-* Create a Run Configuration. It may be a copy of your existing configuration
-* If you are using Unix-like system, add a Before launch step (you don’t need it in Windows). Then choose “Run External Tool”, click [+] (add new tool)
-** Specify cleaning step (delete output directory)
+- Create a Run Configuration. It may be a copy of your existing configuration
+- If you are using Unix-like system, add a Before launch step (you don’t need it in Windows). Then choose “Run External Tool”, click [+] (add new tool)
+    - Specify cleaning step (delete output directory)
 ![Settings](/images/ajc-07.webp)
-** Program 
+
+    - Program 
 ```
 /bin/rm
 ```
-** Arguments 
+
+    - Arguments 
+    
 ```
 -rf $OutputPath$
 ```
-** Working directory 
+
+    - Working directory 
+    
 ```
 $ContentRoot$
 ```
-* Add Before launch step (should be after delete output directory step, if you have added it) , choose Run External Tool, click [+] (add new tool) 
-** Specify ajc compiler step
+- Add Before launch step (should be after delete output directory step, if you have added it) , choose Run External Tool, click [+] (add new tool) 
+    - Specify ajc compiler step
 ![Settings](/images/ajc-08.webp)
-** Program – path to ajc executable (in bin directory of installed AspectJ). It will be *ajc* for Unix-like systems or *ajc.bat* for Windows
-** Arguments (assuming java version is 8)
+    - Program – path to ajc executable (in bin directory of installed AspectJ). It will be *ajc* for Unix-like systems or *ajc.bat* for Windows
+    
+    - Arguments (assuming java version is 8)
+    
 ```
 -cp "$Classpath$" -1.8 -Xlint:ignore -showWeaveInfo -sourceroots $Sourcepath$ -d $OutputPath$
 ```
-** Working directory 
+
+    - Working directory 
+    
 ```
 $ContentRoot$
 ```
-* You run configuration in Before launch section will look like (in case of 2 configured steps):
+- You run configuration in Before launch section will look like (in case of 2 configured steps):
 ![Settings](/images/ajc-06.webp)
 
-* Save and run the configuration
+- Save and run the configuration
