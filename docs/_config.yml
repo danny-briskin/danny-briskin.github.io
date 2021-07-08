@@ -28,7 +28,7 @@ show_downloads: false
 
 # Build settings
 markdown: kramdown
-  syntax_highlighter: rouge
+  syntax_highlighter: coderay
   input: GFM
   auto_ids:       true
   toc_levels:     1..3
