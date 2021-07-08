@@ -26,10 +26,14 @@ github_username:  danny-briskin
 
 # Build settings
 markdown: kramdown
-theme: bulma-clean-theme
+remote_theme:  artemsheludko/flexible-jekyll 
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jemoji
+
 defaults:
   - scope:
       path: "images"
