@@ -19,18 +19,19 @@ description: >- # this means to ignore newlines until "baseurl:"
   Danny Briskin blog awesome description 
   For description  
 baseurl: "" # the subpath of your site, e.g. /blog
+site-twitter: #if your site has a twitter account, enter it here
 
 # Author Settings
 author: Danny Briskin # add your name
-author-img: images/1619973774668.jpeg  # add your photo
+author-img: /images/1619973774668.jpeg  # add your photo
 about-author: It is me
 domain: danny-briskin.github.io
 url: "https://danny-briskin.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
+twitter_username: 
 github_username:  danny-briskin
-social-linkedin:
-social-github:
-social-email:
+social-linkedin: briskin 
+social-github: danny-briskin
+social-email: sql.coach.kiev@gmail.com
 
 # Disqus
 discus-identifier: danny # add your discus identifier
