@@ -144,11 +144,10 @@ $ContentRoot$
 ![Settings](/images/ajc-08.webp)
     - Program – path to ajc executable (in bin directory of installed AspectJ). It will be *ajc* for Unix-like systems or *ajc.bat* for Windows   
     - Arguments (assuming java version is 8)
-{% highlight bash %}
+```
 -cp "$Classpath$" -1.8 -Xlint:ignore -showWeaveInfo -sourceroots $Sourcepath$ -d $OutputPath$
-{% endhighlight %}
+```
     - Working directory 
-    
 ```
 $ContentRoot$
 ```
