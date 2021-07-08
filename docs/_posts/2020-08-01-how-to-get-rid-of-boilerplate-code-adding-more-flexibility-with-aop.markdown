@@ -62,7 +62,8 @@ Pointcut
 
 We will create an aspect to weave logging functionality to methods of our application
 
-1. Let’s create a class with @Aspect annotation 
+## Aspect class
+Let’s create a class with @Aspect annotation 
 {% highlight java %}
 @Aspect public class LogAspect {
 {% endhighlight %}
@@ -71,7 +72,8 @@ Assuming you have configured [Log4j](https://logging.apache.org/log4j/2.x/manual
 public static final Logger LOGGER = LogManager.getLogger("com.qaconsultants.core");
 private static final Level LOGGING_LEVEL = Level.DEBUG;
 {% endhighlight %}
-2. Define a pointcut (see pointcut definition syntax [here](https://www.baeldung.com/spring-aop-pointcut-tutorial#pointcut)) 
+## Pointcut
+Define a pointcut (see pointcut definition syntax [here](https://www.baeldung.com/spring-aop-pointcut-tutorial#pointcut)) 
 {% highlight java %}
 @Pointcut("execution(* org.example.core..*(..))")
 public void pointcutOne() {
@@ -118,8 +120,9 @@ public void replaceAop() {
 {% endhighlight %}
 … a method annotated with @ReplaceAop annotation.
 </details>
-3. Let’s define an advice with join point
-* Before join point 
+## Advices/Joint points
+Let’s define an advice with join point
+### Before join point 
 {% highlight java %}
 @Before("pointcutExecutionFramework() && ! noLog()")
 public void beforeLog(JoinPoint joinPoint) { 
@@ -139,8 +142,10 @@ And do the logging
 LOGGER.log(LOGGING_LEVEL, () -> "[>>] " + methodName + "(" + Arrays.toString(arguments) + ")");
 {% endhighlight %}
  This advice will log a method name with parameters right before the method execution
-* After join point. Work with @After join point is the same as with @Before, the only difference is in place of weaving – it will in the end of method rather than beginning.
-* AfterReturning join point. There is a little difference in using @AfterRuturning join point. Usually it is used for methods returning a value (i.e. not void return type). 
+### After join point
+Work with @After join point is the same as with @Before, the only difference is in place of weaving – it will in the end of method rather than beginning.
+### AfterReturning join point
+There is a little difference in using @AfterRuturning join point. Usually it is used for methods returning a value (i.e. not void return type). 
 {% highlight java %}
 @AfterReturning(value = "pointcutExecutionFramework() && ! noLog()", returning = "result")
 public void afterReturningLog(JoinPoint joinPoint, Object result) { 
@@ -161,7 +166,8 @@ public void afterReturningLog(JoinPoint joinPoint, Object result) {
                         , signature.getDeclaringType().getSimpleName()
                         , signature.getName());} 
 {% endhighlight %}
-* Around join point. A combination of @Before and @After join points is @Around join point. 
+### Around join point
+A combination of @Before and @After join points is @Around join point. 
 {% highlight java %}
 @Around(value = "replaceAop()")
 public Object aroundReplace(ProceedingJoinPoint proceedingJoinPoint)  {
@@ -181,7 +187,8 @@ public Object aroundReplace(ProceedingJoinPoint proceedingJoinPoint)  {
     return null;
 }  
 {% endhighlight %}
-* AfterThrowing join point. And the last annotation I would like to mention, is @AfterThrowing. This one is used for manipulation of methods that throw exceptions. It looks like **@SneakyThrows** from [Lombok](https://projectlombok.org/features/SneakyThrows). The value of **throwing** parameter of the annotaion is the name of Throwable argument of the advice method. 
+### AfterThrowing join point
+And the last annotation I would like to mention, is @AfterThrowing. This one is used for manipulation of methods that throw exceptions. It looks like **@SneakyThrows** from [Lombok](https://projectlombok.org/features/SneakyThrows). The value of **throwing** parameter of the annotaion is the name of Throwable argument of the advice method. 
 {% highlight java %}
 @AfterThrowing(value = "pointcutExecutionFramework()", throwing = "e")
 public void afterThrowingFramework(JoinPoint joinPoint, Throwable e) { 
