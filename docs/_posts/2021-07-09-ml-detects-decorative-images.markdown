@@ -6,6 +6,7 @@ categories: ML
 tags: WCAG python 
 ---
 ![](/images/blog-series-7.webp)
+
 Danny Briskin, QA Consultants Senior Automation Engineer
 July 2021
 
