@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Automatic detection of decorative images using Machine Learning"
-date:   2020-07-09 14:40:30 -0400
+date:   2021-07-09 14:40:30 -0400
 categories: ML 
 tags: WCAG python 
 ---
@@ -48,9 +48,10 @@ Thinking of that I gradually stopped the development.
 Once I have read about [Zero shot learning](https://en.wikipedia.org/wiki/Zero-shot_learning) and [CLIP](https://openai.com/blog/clip/). CLIP stands for Contrastive Language-Image Pre-training. “It can't be possible!” was my first thought. How it works with **any** image and **any** text? Literally, any! There are models in that library but one cannot train a model for all images in the world. A kind of magic...
 
 I started to verify it with some simple tests:
-1. ![A cow](cow.jpg)
+1.
+![A cow](/images/cow.jpg)
 |Category|Probability|
---- | --- 
+|--- | ---| 
 |a boy|0.0001 %|
 |a cow|99.98 %|
 |a horse|0.01 %|
@@ -60,15 +61,15 @@ I started to verify it with some simple tests:
 Well, it was simple. 
 Let's make it a bit confusing (images were taken from a web shop catalog):
 
-2. ![what it is?](1.jpg)
+2. ![what it is?](/images/1.jpg)
 What do you think it is? A candy? A toy? No, it is “Candy Corn Dancin Tricky Treat Singing Stuffed Animal With Motion 10” - 98% of confidence
 
 and this one?
-![sweater](2.jpg)
+![sweater](/images/2.jpg)
 “CHAMPION HERITAGE OVER SHOULDER SCRIPT L/S – MEN'S” - 99%
 
 and finally, here that thing was not absolutely sure
-![A cow](3.jpg)
+![tshirt](/images/3.jpg)
 “Aeropostale Marilyn Monroe Graphic Tee - Navy, Medium” - 62%
 
 Well, okay, even me, a human, was not sure what do they want to sale using this picture (the answer is - a T-short)
