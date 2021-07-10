@@ -71,6 +71,7 @@ What do you think it is? A candy? A toy? No, it is “Candy Corn Dancin Tricky T
 and this one?
 
 ![sweater](/images/2.jpg)
+
 “CHAMPION HERITAGE OVER SHOULDER SCRIPT L/S – MEN'S” - 99%
 
 and finally, here that thing was not absolutely sure
