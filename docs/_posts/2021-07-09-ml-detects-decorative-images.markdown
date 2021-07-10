@@ -48,8 +48,10 @@ Thinking of that I gradually stopped the development.
 Once I have read about [Zero shot learning](https://en.wikipedia.org/wiki/Zero-shot_learning) and [CLIP](https://openai.com/blog/clip/). CLIP stands for Contrastive Language-Image Pre-training. “It can't be possible!” was my first thought. How it works with **any** image and **any** text? Literally, any! There are models in that library but one cannot train a model for all images in the world. A kind of magic...
 
 I started to verify it with some simple tests:
-1.
+
+First one
 ![A cow](/images/cow.jpg)
+
 |Category|Probability|
 |--- | ---| 
 |a boy|0.0001 %|
@@ -59,17 +61,22 @@ I started to verify it with some simple tests:
 |a cowboy is riding through prairie|0.01 %|
 
 Well, it was simple. 
+
 Let's make it a bit confusing (images were taken from a web shop catalog):
 
-2. ![what it is?](/images/1.jpg)
+![what it is?](/images/1.jpg)
+
 What do you think it is? A candy? A toy? No, it is “Candy Corn Dancin Tricky Treat Singing Stuffed Animal With Motion 10” - 98% of confidence
 
 and this one?
+
 ![sweater](/images/2.jpg)
 “CHAMPION HERITAGE OVER SHOULDER SCRIPT L/S – MEN'S” - 99%
 
 and finally, here that thing was not absolutely sure
+
 ![tshirt](/images/3.jpg)
+
 “Aeropostale Marilyn Monroe Graphic Tee - Navy, Medium” - 62%
 
 Well, okay, even me, a human, was not sure what do they want to sale using this picture (the answer is - a T-short)
@@ -142,3 +149,5 @@ The service should be easily distributed to any kind of environment and does not
 [Flask](https://flask.palletsprojects.com/en/2.0.x/)/[Waitress](https://docs.pylonsproject.org/projects/waitress/en/stable/) was chosen as service engine. [Swagger-UI](https://pypi.org/project/swagger-ui-py/) will serve Swagger documentation.
 Everything will be packed into [Docker](https://www.docker.com/) container.
 
+
+**TBC**
