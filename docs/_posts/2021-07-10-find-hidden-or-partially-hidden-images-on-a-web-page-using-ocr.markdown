@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Find hidden or partially hidden images on a webpage using OCR"
+title: "Find hidden or partially hidden images on a web page using OCR"
 date:   2021-07-10 14:40:30 -0400
 categories: web testing 
 tags: WCAG java selenium 
