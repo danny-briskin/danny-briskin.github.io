@@ -11,6 +11,7 @@ July 2021
 
 # Motivation
 During accessibility testing ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) of a website one of the most confusing tests is about decorative images. The requirement says:
+
 Text Alternatives
 : **Provide text alternatives** for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.
 
