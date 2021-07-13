@@ -25,10 +25,10 @@ In other words, if an image is informative one it should have **alt** attribute 
 
 # The issue
 Well, it is obvious for a web page author which image is decorative. It is not complicated for a human tester to do the same. But how to determine it automatically?
-There are no reliable approaches to solve this issue based on size or color of images because of the nature of web design.
+There are no reliable approaches to solve this issue based on size or colour of images because of the nature of web design.
 All decisions whether an image is decorative or not can be done based on contents of the image. But it is not the only meaningful criteria to check.
 The same images could be decorative on certain pages while on others it will not. 
-A picture of a pretty woman in underwear will be quite informative in women underwear shop catalog but it becomes purely decorative in online banking website. 
+A picture of a pretty woman in underwear will be quite informative in women underwear shop catalogue but it becomes purely decorative in online banking website. 
 
 Let's summarize: for an image to be informative, its topic should be the same as its page contents topic.
 
@@ -151,7 +151,7 @@ The service should be easily distributed to any kind of environment and does not
 
 # Implementation
 [Flask](https://flask.palletsprojects.com/en/2.0.x/)/[Waitress](https://docs.pylonsproject.org/projects/waitress/en/stable/) was chosen as service engine. [Swagger-UI](https://pypi.org/project/swagger-ui-py/) will serve Swagger documentation.
-Everything will be packed into [Docker](https://www.docker.com/) container.
+Service is packed into [Docker](https://www.docker.com/) container.
 
+Project code can be found [here](https://github.com/danny-briskin/classifyIt.git)
 
-**TBC**
