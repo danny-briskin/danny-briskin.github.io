@@ -89,7 +89,7 @@ So, it is working. Let's make it usable.
 
 
 # Architecture
-Let's assume that we have a WCAG testing software, and we will provide it a service that receives a link to a picture and several (>=1) texts/words/sentences that are possible topics of given image.
+Let's assume that we have a WCAG testing software, and we will provide it an API/service that receives a link to a picture and several (>=1) texts/words/sentences that are possible topics of given image.
 The response is the probability for each given text that the topic of the image is the same.
 
 The request:
@@ -150,8 +150,10 @@ Swagger-like UI should be created to ease service usage.
 The service should be easily distributed to any kind of environment and does not depend on environment.
 
 # Implementation
-[Flask](https://flask.palletsprojects.com/en/2.0.x/)/[Waitress](https://docs.pylonsproject.org/projects/waitress/en/stable/) was chosen as service engine. [Swagger-UI](https://pypi.org/project/swagger-ui-py/) will serve Swagger documentation.
+[Flask](https://flask.palletsprojects.com/en/2.0.x/)/[Waitress](https://docs.pylonsproject.org/projects/waitress/en/stable/) was chosen as API/service engine. [Swagger-UI](https://pypi.org/project/swagger-ui-py/) will serve Swagger documentation.
 Service is packed into [Docker](https://www.docker.com/) container.
 
 Project code can be found [here](https://github.com/danny-briskin/classifyIt.git)
 
+# Summary
+The idea of usage Machine Learning technologies in automation testing is not a brand new. I believe that once, in the future a fully qualified artificial intelligence will perform all testing activities. But even now, we can replace a tedious and boring work of a manual tester work with a quite fast and robust automation script. An implementation in a form of API/service packed in a Docker container makes it flexible, reliable, maintainable, testable and scalable solution.
