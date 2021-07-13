@@ -51,6 +51,7 @@ Once I have read about [Zero shot learning](https://en.wikipedia.org/wiki/Zero-s
 I started to verify it with some simple tests:
 
 First one
+
 ![A cow](/images/cow.jpg)
 
 |Category|Probability|
@@ -67,7 +68,8 @@ Let's make it a bit confusing (images were taken from a web shop catalog):
 
 ![what it is?](/images/1.jpg)
 
-What do you think it is? A candy? A toy? No, it is “Candy Corn Dancin Tricky Treat Singing Stuffed Animal With Motion 10” - 98% of confidence
+What do you think it is? A candy? A toy?
+No, it is “Candy Corn Dancin Tricky Treat Singing Stuffed Animal With Motion 10” - 98% of confidence!
 
 and this one?
 
