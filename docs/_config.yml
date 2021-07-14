@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Knowledge Base
+title: Knowledge Vault
 email: sql.coach.kiev@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Articles about Information Technologies by Danny Briskin
@@ -29,6 +29,8 @@ show_downloads: false
 # Build settings
 markdown: kramdown
 theme: jekyll-theme-cayman
+google_analytics: G-LLJZP41FY1
+
 plugins:
   - jekyll-feed
   
