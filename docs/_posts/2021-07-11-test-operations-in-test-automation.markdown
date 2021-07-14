@@ -5,11 +5,10 @@ date:   2021-07-11 14:40:30 -0400
 categories: automation testing 
 tags: automation java jenkins 
 ---
-![](/images/blog-series-7.webp)
+![](/images/testops_testautomation.jpg)
 
 Danny Briskin, QA Consultants Senior Automation Engineer
 
-July 2021
 
 # The issue
 Test automation is consistently acquiring the key role in testing of most digital-era companies
@@ -23,7 +22,7 @@ It is expected from a SDET that they will create an automation script that can b
 Sounds pretty easy, right?
 But it is often forgotten, that just to start working they need:
 - development infrastructure
-    - computers and/or servers to work
+    - computers and/or servers to workgood mornin
     - IDE, software to access servers, systems, databases, API, etc.
     - additional database(s) or some workspace in existing one
     - workaround scripts to setup local environment

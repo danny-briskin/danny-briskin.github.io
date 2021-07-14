@@ -5,9 +5,8 @@ date:   2020-08-01 15:40:30 -0400
 categories: java
 tags: java lombok AOP AspectJ
 ---
-![](/images/AOP.webp)
+![](/images/setup_aspectj.jpg)
 Danny Briskin, QA Consultants Senior Automation Engineer
-August 2020
 
 # Common part
 Download AspectJ installation stable release. Version 1.9.5 is used everywhere in the article. Install it to 

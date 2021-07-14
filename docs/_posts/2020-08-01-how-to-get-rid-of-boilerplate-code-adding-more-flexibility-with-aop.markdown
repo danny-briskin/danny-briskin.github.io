@@ -5,9 +5,8 @@ date:   2020-08-01 14:40:30 -0400
 categories: java
 tags: java lombok AOP
 ---
-![](/images/aspectj.webp)
+![](/images/flexibility_aspectj.jpg)
 Danny Briskin, QA Consultants Senior Automation Engineer
-August 2020
 
 # The issue
 

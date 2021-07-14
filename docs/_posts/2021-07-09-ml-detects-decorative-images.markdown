@@ -5,10 +5,10 @@ date:   2021-07-09 14:40:30 -0400
 categories: ML 
 tags: WCAG python 
 ---
-![](/images/blog-series-7.webp)
+![](/images/decorative_images.jpg)
 
 Danny Briskin, QA Consultants Senior Automation Engineer
-July 2021
+
 
 # Motivation
 During accessibility testing ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) of a website one of the most confusing tests is about decorative images. The requirement says:

@@ -5,11 +5,10 @@ date:   2021-07-10 14:40:30 -0400
 categories: web testing 
 tags: WCAG java selenium opencv
 ---
-![](/images/blog-series-7.webp)
+![](/images/hidden_images.jpg)
 
 Danny Briskin, QA Consultants Senior Automation Engineer
-July 2021
-
+ 
 # The issue
 The process of design and creation of a web page usually starts with creation of a wireframe that includes images. It is obvious that a web designers wants to see those images on the page in a way everything was originally designed.
 But sooner or later, some changes are to be made to the page. Business require new interactive elements, new stylesheets, new version of 3rd-party libraries. All that could lead to changes that sometimes cannot be seen by a human tester or automated scripts.

@@ -7,7 +7,6 @@ tags: java lombok
 ---
 ![](/images/java_code_top.webp)
 Danny Briskin, QA Consultants Senior Automation Engineer
-July 2020
 
 Today, QA has become more and more reliant on automation. Sure, it saves time and increases coverage, but it also requires specific knowledge within test automation approaches, languages, and tools. Programming languages like Java are the most common choice to create test automation frameworks today. However, as automation frameworks and their test suites grow, more and more lines of code are required, and it may become cumbersome to maintain.  Without a focus on reducing code complexity and efficiency, automated test developers face the risk of perpetuating the same issues we find in code under test, but in our test automation code.   
 
