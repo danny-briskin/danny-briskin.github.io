@@ -33,6 +33,7 @@ google_analytics: G-LLJZP41FY1
 
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
   
 defaults:
   - scope:
