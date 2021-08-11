@@ -41,10 +41,10 @@ It is a good idea to have a technical writer role in the project. Not all specia
 
 # Tools
 - A free [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki) tool or any standalone or hosted Wiki-like tools. With the all power of Wikipedia, you can create and maintain a highly customizable documents. There are comments and discussion, a lot of plugins. Unfortunately version control and user management are very primitive. The main drawback of the system is in lack of native links to other collaboration tools (like task management, version control system, etc.)
-- [Atlassian] (https://www.atlassian.com/). Well-known Atlassian tools for IT projects like Jira and Bitbucket. There is also a dedicated tool: Confluence but even with a very basic Wiki, coming with Bitbucket repository, you can achive great results in documentation.
+- [Atlassian](https://www.atlassian.com/). Well-known Atlassian tools for IT projects like Jira and Bitbucket. There is also a dedicated tool: Confluence but even with a very basic Wiki, coming with Bitbucket repository, you can achive great results in documentation.
 - [Mictrosoft Azure](https://azure.microsoft.com/en-ca/) a paid tool from Microsoft with all its excellence.
-- [GitHub] (https://github.com/) a built-in documnetation system in Git repository is not very powerful but is very handy (yes, this article was created in that tool)
-- [Gitlab] (https://about.gitlab.com/) - another version control system with documentation tools onboard
+- [GitHub](https://github.com/) a built-in documnetation system in Git repository is not very powerful but is very handy (yes, this article was created in that tool)
+- [Gitlab](https://about.gitlab.com/) - another version control system with documentation tools onboard
 
 # Summary
 Create and review and maintain your documentation every time! "Boring and useless" work will can turn your project from disaster to success. You team members will be grateful for your efforts and even if you leave the project, future generations will be excited to have such a farsighted predecessor.
