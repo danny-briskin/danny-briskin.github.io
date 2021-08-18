@@ -113,61 +113,8 @@ Having forced contributors to make intelligible commit messages, let's automate 
 Let me introduce one of such applications: [Standard Version](https://github.com/conventional-changelog/standard-version). It uses [Node.js](https://nodejs.org/en/) as an engine, so it has to be installed prior to use.
 Even though it was designed for [Angular](https://angular.io/) it can be easily used in most of software project that have Git as a VCS.
 The idea of the application is to maintain previous version (that was already in chahgelog) and add all new commits (done in a Conventional way) as a release notes between previuous and current versions. It makes tag for the new version in Git, and changes previous version to new one in configuration file(s) for the project.
-The application is customizable, using command line parameters and configuration files you can achieve a perfect changelog.
-<details>
-  <summary>An example of generated Changelog</summary>
-
-{% highlight markdown %}
-My Application changelog 
-
-## [4.0.0](https://github.com/danny-briskin/aopArticle/compare/v3.1.3...v4.0.0) (2021-08-18)
-
-
-### ⚠ BREAKING CHANGES
-
-* **login-form:** Login and registration form are ready for production ([23b1515](https://github.com/danny-briskin/aopArticle/commit/23b150034de5e32faca0398787be8e5ba88ca89c)), closes [#5](https://github.com/danny-briskin/aopArticle/issues/5)
-
-
-### [3.1.2](ttps://github.com/danny-briskin/aopArticle/compare/v3.1.1...v3.1.2) (2021-08-18)
-
-
-### Bug Fixes
-
-* **login-form:** URL was changed to PROD ([23b1513](https://github.com/danny-briskin/aopArticle/commit/23b150034de5e32faca0398787be8e5ba88ca89c)), closes [#13](https://github.com/danny-briskin/aopArticle/issues/13)
-
-### [3.1.1](https://github.com/danny-briskin/aopArticle/compare/v3.1.0...v3.1.1) (2021-08-18)
-
-
-### Bug Fixes
-
-* **login-form:** correct minor typos in code ([23b1512](https://github.com/danny-briskin/aopArticle/commit/23b150034de5e32faca0398787be8e5ba88ca89c)), closes [#12](https://github.com/danny-briskin/aopArticle/issues/12)
-
-## [3.1.0](https://github.com/danny-briskin/aopArticle/compare/v3.0.0...v3.1.0) (2021-08-18)
-
-
-### Features
-
-* **login-form:** A new feature for Login form ([23b1503](https://github.com/danny-briskin/aopArticle/commit/23b150034de5e32faca0398787be8e5ba88ca89c)), closes [#3](https://github.com/danny-briskin/aopArticle/issues/3)
-
-## [3.0.0](https://github.com/danny-briskin/aopArticle/compare/v2.0.0...v3.0.0) (2021-08-18)
-
-
-### ⚠ BREAKING CHANGES
-
-* **registration-form:** Registration form captcha was added ([23b1501](https://github.com/danny-briskin/aopArticle/commit/23b150034de5e32faca0398787be8e5ba88ca89c)), closes [#2](https://github.com/danny-briskin/aopArticle/issues/2)
-
-## [2.0.0](https://github.com/danny-briskin/aopArticle/compare/v1.0.13...v2.0.0) (2021-08-18)
-
-
-### ⚠ BREAKING CHANGES
-
-* **registration-form:** Registration form is working ([23b1500](https://github.com/danny-briskin/aopArticle/commit/23b150034de5e32faca0398787be8e5ba88ca89c)), closes [#1](https://github.com/danny-briskin/aopArticle/issues/1)
-
-
-## 1.0.0 (2021-08-17)
-
-{% endhighlight %}
-</details>
+The application is customizable, using command line parameters and configuration files you can achieve a perfect changelog like this.
+![](/images/changelog_01.png)
 
 # Summary
 Having a proper Changelog can greatly boost your system maintainability. It could ease not only backtracking but enables a clear view of system development through time, and links together version control, task management and support procedures.
