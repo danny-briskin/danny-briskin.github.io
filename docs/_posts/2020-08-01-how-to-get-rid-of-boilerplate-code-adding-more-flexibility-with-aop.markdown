@@ -12,7 +12,7 @@ Danny Briskin, QA Consultants Senior Automation Engineer
 
 [Project Lombok](https://projectlombok.org/) has its advantages ([see previous article](https://danny-briskin.github.io/java/2020/07/01/perspectives-of-automation-engineers-the-perils-of-boilerplate-code-even-in-test-automation.html)) but the drawbacks are present there too. The main one: you are limited to already created Lombok functionality.
 
-When you need more flexibility, you may take a look to Aspect Oriented Programming (AOP)
+When you need more flexibility, you may look at Aspect Oriented Programming (AOP)
 
 The main idea of AOP is in usage of so-called aspects. Aspects are parts of code that can be automatically inserted (it is called “weaving“) into another part of code during compilation or even during runtime. You can define various rules of weaving aspects depend on your business logic
 
@@ -43,7 +43,7 @@ Join point
 * Before method is executed
 * After method was executed
 * After method was executed and had returned a value
-* Around method (i.e. before + after join point together). You can wrap method execution in your code or even replace the execution with yours
+* Around method (i.e., before + after join point together). You can wrap method execution in your code or even replace the execution with yours
 * After exception was thrown
 
 Advice
@@ -122,7 +122,7 @@ public void replaceAop() {
 ## Advices/Joint points
 Let’s define an advice with join point
 
-### Before join point 
+### Before join point
 {% highlight java %}
 @Before("pointcutExecutionFramework() && ! noLog()")
 public void beforeLog(JoinPoint joinPoint) { 
@@ -203,10 +203,10 @@ Using already known JoinPoint object and throwable object you can create a conci
 
 There are a few hidden discrepancies in using AspectJ library:
 * Some versions are not compatible with popular frameworks (like Spring and Lombok. The one used here (1.9.5) is fully compatible
-* It is not easy to setup proper amount of logging. It is either too much or too few. Deep knowledge of logging technique is required. In addition, you can create several annotations to disable/enable logging process and make your logging in advice methods dependent on it.
+* It is not easy to setup proper amount of logging. It is either too much or too few. A deep knowledge of logging technique is needed. In addition, you can create several annotations to disable/enable logging process and make your logging in advice methods dependent on it.
 * Some objects are hard to log because their toString() method does not exist or does logging in inappropriate way. You need to know Java Reflection API well to be able to convert complex objects into String correctly.
 * The main drawback of AOP is that program flow is obscured and a very fragile sometimes. One should consider using plugins to popular IDE to visualize weaving and make sure that all changes made will not break another part of application
 
 # Summary
 
-AOP is a very powerful and flexible tool to code less. On the other hand, the tool is much more low-level that Lombok. Knowledge in additional spheres is required in addition to Java core. In combination with Java Reflection API and Spring framework (will be discussed in next articles) one can create a reliable, automatically reusable, hidden (from business logic part) code instead of hundred times repeatable boilerplate code.
+AOP is a powerful and flexible tool to code less. On the other hand, the tool is much more low-level than Lombok. Knowledge in additional spheres is required in addition to Java core. In combination with Java Reflection API and Spring framework (will be discussed in next articles) one can create a reliable, automatically reusable, hidden (from business logic part) code instead of hundred times repeatable boilerplate code.

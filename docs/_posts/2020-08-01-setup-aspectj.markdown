@@ -15,7 +15,7 @@ Download AspectJ installation stable release. Version 1.9.5 is used everywhere i
 ```
 
 # Intellij Idea Ultimate edition
-If you have an ultimate version of this popular IDE, the setup is very simple.
+If you have an ultimate version of this popular IDE, the setup is quite simple.
 
 Open settings:
 ```
@@ -34,7 +34,7 @@ Optionally you can install Intellij plugin ([AspectJ weaver](https://plugins.jet
 # Intellij Idea Community edition
 ## Maven project
 
-Following steps are for Maven project, you can do the same with Gradle if you are familiar with that build system.
+The following steps are for Maven project, you can do the same with Gradle if you are familiar with that build system.
 AspectjJ setup for a Maven project in Community Idea is a bit more complicated but is still easy to apply.
 
 - Add a dependency to pom.xml 

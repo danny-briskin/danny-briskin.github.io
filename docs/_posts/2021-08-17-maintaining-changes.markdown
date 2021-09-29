@@ -11,14 +11,14 @@ Danny Briskin, QA Consultants Senior Automation Engineer
 
 
 # The issue
-In a project with a long history, it's often good to have all information about changes is stored. Not only the date, author and content of the change but also a motivation that led to the change.
-Using a version control system(VCS) can greatly help in backtracking but its capabilities are very scarce.
+In a project with a long history, it's often good to have all information about changes stored. Not only the date, author and content of the change but also a motivation that led to the change.
+Using a version control system (VCS) can greatly help in backtracking but its capabilities are very scarce.
 In addition, VCS contributors are usually concentrated on contributing rather than description of what was done. What's more, work on the project can be done in parallel, by several people, not in a "logical" sequence (from business perspective). For example, a customer login form could be implemented much earlier than customer registration form.
-And if you have to maintain several versions in the same time, questions like "What was changed in version X?" and "Why that change was (or was not) included in version Y?" can become a nightmare.
-In that case, a proper tracking of changes could be vital in project.
+And if you must support several versions at the same time, questions like "What was changed in version X?" and "Why that change was (or was not) included in version Y?" can become a nightmare.
+In that case, a proper tracking of changes could be vital in the project.
 
 # Changelog
-A changelog is a file, where changes that were made since previous version, are described. A typical chagelog looks like
+A changelog is a file, where changes that were made since previous version, are described. A typical changelog looks like
 {% highlight markdown %}
 
 ## 1.2.0 (2021-08-04) Feature
@@ -40,16 +40,16 @@ In other words, a Changelog is a composition of Release Notes (or you can pick a
 
 
 That's not bad in general (and it is much better than you don't have any changelog!). But it begs questions: "How this text document is related to VCS or task management system? How to find contents of the change mentioned in version 1.1.0?" 
-A support engineer has to spend a lot of time (with not guaranteed result!) to search repository and for that specific change. And when/if it is found, the commit message could be even more scarce, like 
+A support engineer must spend a lot of time (with not guaranteed result!) to search repository and for that specific change. And when/if it is found, the commit message could be even more scarce, like 
 ```
 fix bug
 ```
 
-When project grows bigger, it takes more and more resources to maintain the changelog. And yes, this is a manual work, needed to be done by someone.
+When the project grows bigger, it will take even more resources to maintain the changelog. And yes, this is manual work, which needs to be done by someone.
 
 
 # Git log becomes a changelog! And failed...
-Well, as you know, those developers ought to write some commit messages anyway. Let's not make the same work twice! Can we convert a set of messages into a changelog? Easily, with the power of "git log" command:
+Well, as you know, those developers ought to write some commit messages anyway. Let's not do the same work twice! Can we convert a set of messages into a changelog? Easily, with the power of "git log" command:
 
 {% highlight bash %}
 # like this
@@ -60,8 +60,8 @@ git log  --pretty=format:'<li><a href="http://github.com/danny-briskin/classifyI
 git log v2.0.0...v3.1.0 --pretty="- %s"
 {% endhighlight %}
 
-Each of those command will bring us a file that looks like a changelog. At first sight.
-It will consists of first lines of commit messages (yes, we can play with --pretty and --format parameters to get the full message), dates, authors - things we need. What can go wrong?
+Each of those commands will bring us a file that looks like a changelog. At first sight.
+It will consist of first lines of commit messages (yes, we can play with --pretty and --format parameters to get the full message), dates, authors - things we need. What can go wrong?
 Those messages... Have you seen it? 
 - Bug fix
 - Code was fixed
@@ -70,7 +70,7 @@ Those messages... Have you seen it?
 - ...
 Will it help us in our investigations? Of course not.
 
-What if we forgot to tag a commit to mark a specific version? How can we determine now, what was changed since version 1.0.0? Between 1.1.2 and 1.2.5? And why it was changed?
+What if we forgot to tag a commit to mark a specific version? How can we figure out now, what has changed since version 1.0.0? Between 1.1.2 and 1.2.5? And why was it changed?
 
 # Let's enforce proper commit messages
 We can use [Git hooks](https://git-scm.com/docs/githooks) to prevent contributors making commits, violating some rules we want to see in commit message.
@@ -99,20 +99,20 @@ git commit -m"[JIRA-123] - Test" MyFile.java
 will succeed.
 
 In the same way, we can enforce users to add a type of change (from predefined list), business area and other useful information.
-In fact, all specification exists and can be used. See [Semantic Version](https://semver.org/) or [Conventional Commits](https://www.conventionalcommits.org/).
+In fact, all specifications exist and can be used. See [Semantic Version](https://semver.org/) or [Conventional Commits](https://www.conventionalcommits.org/).
 
-There are only two drawbacks in git hooks:
-1. Hooks are not saved in version control, so it is not easy to propagate it to all project participants.
-2. Hooks are not always crossplatformed. You need to use a high level programming language to make it work crossplatform but you have to have that language installed on every device where hooks are used.
+There are only two drawbacks for git hooks:
+1. Hooks are not saved in version control, so it is not easy to spread it to all project participants.
+2. Hooks are not always cross-platformed. You need to use a high-level programming language to make it work cross-platform but you must have that language installed on every device where hooks are used.
 
 On the other hand, there are systems with built-in (and highly customizable) hooks, like Bitbucket.
 A "must have" thing to turn on there is [Require issue keys in commit messages](https://support.atlassian.com/bitbucket-cloud/docs/link-to-a-web-service/) and you can enjoy commits with a link to task number.
 
 # Let's automate changelog
 Having forced contributors to make intelligible commit messages, let's automate changelog creation.
-Let me introduce one of such applications: [Standard Version](https://github.com/conventional-changelog/standard-version). It uses [Node.js](https://nodejs.org/en/) as an engine, so it has to be installed prior to use.
-Even though it was designed for [Angular](https://angular.io/) it can be easily used in most of software project that have Git as a VCS.
-The idea of the application is to maintain previous version (that was already in chahgelog) and add all new commits (done in a Conventional way) as a release notes between previuous and current versions. It makes tag for the new version in Git, and changes previous version to new one in configuration file(s) for the project.
+Let me introduce one of such applications: [Standard Version](https://github.com/conventional-changelog/standard-version). It uses [Node.js](https://nodejs.org/en/) as an engine, so it must be installed prior to use.
+Even though it was designed for [Angular](https://angular.io/) it can be easily used in most software projects that have Git as a VCS.
+The idea of the application is to maintain previous version (that was already in changelog) and add all new commits (done in a Conventional way) as a release notes between previous and current versions. It makes tag for the updated version in Git and changes previous version to new one in configuration file(s) for the project.
 The application is customizable, using command line parameters and configuration files you can achieve a perfect changelog like this.
 ![](/images/changelog_01.png)
 

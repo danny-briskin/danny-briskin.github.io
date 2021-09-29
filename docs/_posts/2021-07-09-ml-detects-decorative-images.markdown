@@ -24,29 +24,29 @@ But on the other hand
 In other words, if an image is informative one it should have **alt** attribute filled with intelligible description. Otherwise, alt attribute must be empty.
 
 # The issue
-Well, it is obvious for a web page author which image is decorative. It is not complicated for a human tester to do the same. But how to determine it automatically?
-There are no reliable approaches to solve this issue based on size or colour of images because of the nature of web design.
-All decisions whether an image is decorative or not can be done based on contents of the image. But it is not the only meaningful criteria to check.
+Well, it is obvious for a web page author which image is decorative. It is not complicated for a human tester to do the same. But how to figure it out automatically?
+There are no reliable approaches to solve this issue based on size or color of images because of the nature of web design.
+All decisions whether an image is decorative or not can be made based on the contents of the image. But it is not the only meaningful criteria to check.
 The same images could be decorative on certain pages while on others it will not. 
 A picture of a pretty woman in underwear will be quite informative in women underwear shop catalogue but it becomes purely decorative in online banking website. 
 
-Let's summarize: for an image to be informative, its topic should be the same as its page contents topic.
+Let's sum up: for an image to be informative, its topic should be the same as its page contents topic.
 
 # Idea
-We are faced with a classic [Classification Task](https://en.wikipedia.org/wiki/Statistical_classification). A more precisely, there are 2 classifications: one for page text and other one is for image. If classes are the same, the image is marked as informative, otherwise it is decorative.
-Nowadays, machine learning technologies allow making reliable decisions in a relatively short time.
+We are faced with a classic [Classification Task](https://en.wikipedia.org/wiki/Statistical_classification). More precisely, there are 2 classifications: one for page text and other one is for image. If classes are the same, the image is marked as informative, otherwise it is decorative.
+Nowadays, machine learning technologies allow making reliable decisions in a relatively brief time.
 The simplest way is to use Python as a programming language and one of well-known libraries to create two classifiers.
-There are some drawbacks in that solution:
+There are some drawbacks to that solution:
 1. We need to create a set of all possible topics
-2. And we need to train a model on a lot of examples to achieve good accuracy.
+2. And we need to train a model with a lot of examples to achieve good accuracy.
 
 # Attempt number one
-I started with text classifier(yes, it looked much simpler than the one for images). Using [spacy](https://spacy.io/) library and Wikipedia (English) slice of 2017, [Google News](https://news.google.com/) and several RSS news feeds as a training examples I trained a model with 91% of accuracy in predefined 19 categories.
-The number of training examples was not big enough, I was working on increasing it, but the 1st drawback worried me much more. What if text doe not relate to any of given topics? Is it a good idea to increase the number of topic and how it will affect to accuracy?
+I started with a text classifier (yes, it looked much simpler than the one for images). Using [spacy](https://spacy.io/) library and Wikipedia (English) slice of 2017, [Google News](https://news.google.com/) and several RSS news feeds as training examples I trained a model with 91% of accuracy in predefined 19 categories.
+The number of training examples was not big enough, I was working on increasing it, but the 1st drawback worried me much more. What if text does not relate to any of the given topics? Is it a promising idea to increase the number of topics and how will it affect accuracy?
 Thinking of that I gradually stopped the development.
 
 # Attempt number two
-Once I have read about [Zero shot learning](https://en.wikipedia.org/wiki/Zero-shot_learning) and [CLIP](https://openai.com/blog/clip/). CLIP stands for Contrastive Language-Image Pre-training. “It can't be possible!” was my first thought. How it works with **any** image and **any** text? Literally, any! There are models in that library but one cannot train a model for all images in the world. A kind of magic...
+Once I have read about [Zero shot learning](https://en.wikipedia.org/wiki/Zero-shot_learning) and [CLIP](https://openai.com/blog/clip/). CLIP stands for Contrastive Language-Image Pre-training. “It can't be possible!” was my first thought. How it works with **any** image and **any** text? Literally, any! There are models in that library, but one cannot train a model for all images in the world. A kind of magic...
 
 I started to verify it with some simple tests:
 
@@ -83,7 +83,7 @@ and finally, here that thing was not absolutely sure
 
 “Aeropostale Marilyn Monroe Graphic Tee - Navy, Medium” - 62%
 
-Well, okay, even me, a human, was not sure what do they want to sale using this picture (the answer is - a T-short)
+Well, okay, even I, a human, was not sure what do they wanted to sale using this picture (the answer is - a T-shirt)
 
 So, it is working. Let's make it usable.
 
@@ -147,7 +147,7 @@ The response:
 ```
 
 Swagger-like UI should be created to ease service usage. 
-The service should be easily distributed to any kind of environment and does not depend on environment.
+The service should be easily distributed to any kind of environment and does not depend on the environment.
 
 # Implementation
 [Flask](https://flask.palletsprojects.com/en/2.0.x/)/[Waitress](https://docs.pylonsproject.org/projects/waitress/en/stable/) was chosen as API/service engine. [Swagger-UI](https://pypi.org/project/swagger-ui-py/) will serve Swagger documentation.
@@ -156,4 +156,4 @@ Service is packed into [Docker](https://www.docker.com/) container.
 Project code can be found [here](https://github.com/danny-briskin/classifyIt.git)
 
 # Summary
-The idea of usage Machine Learning technologies in automation testing is not a brand new. I believe that once, in the future a fully qualified artificial intelligence will perform all testing activities. But even now, we can replace a tedious and boring work of a manual tester work with a quite fast and robust automation script. An implementation in a form of API/service packed in a Docker container makes it flexible, reliable, maintainable, testable and scalable solution.
+The idea of using Machine Learning technologies in automation testing is not brand new. I believe that once, in the future a fully qualified artificial intelligence will perform all testing activities. But even now, we can replace the tedious and boring work of a manual tester work with a quite fast and robust automation script. An implementation in the form of API/service packed in a Docker container makes it flexible, reliable, maintainable, testable and scalable solution.
