@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Scriptless and low-scripting tools in QA automation"
-date:   2022-08-24 14:40:30 -0400
+date:   2022-08-24 10:40:30 -0400
 categories: QA automation
 tags: QA automation, tools, scriptless
 ---
