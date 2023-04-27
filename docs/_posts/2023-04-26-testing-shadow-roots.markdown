@@ -41,7 +41,7 @@ You can see it visually, but it's not easy to search for it programmatically.
 
 # XPath fails
 Let's try to search for it using XPath:
-{% highlight  %}
+{% highlight xpath %}
 //span[@class='custom-option']
 {% endhighlight %}    
 Oops, nothing... 
