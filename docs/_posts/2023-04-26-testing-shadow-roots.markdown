@@ -17,7 +17,7 @@ First, [XPath](https://www.w3schools.com/xml/xpath_syntax.asp) stops working in 
 {% highlight html %}
 <div class="select-wrapper" id="my-shadow-root"></div>
 {% endhighlight %}
-![](/images/changelog_02.png)
+![](/images/shadow_root_02.png)
 
 There are no items in it but when you click on it, some items are populated. Sure, there was a JavaScript and CSS code that produced options in runtime. Some developers are skilled enough and make it appears inside a pseudo-select tag (i.e. top level div), like this:
 {% highlight html %}
@@ -36,7 +36,7 @@ There are no items in it but when you click on it, some items are populated. Sur
       </div>
     </div>
 {% endhighlight %}
-![](/images/changelog_03.png)
+![](/images/shadow_root_03.png)
 You can see it visually, but it's not easy to search for it programmatically. 
 
 # XPath fails
@@ -45,9 +45,9 @@ Let's try to search for it using XPath:
 //span[@class='custom-option']
 {% endhighlight %}    
 Oops, nothing... 
-![](/images/changelog_04.png)
+![](/images/shadow_root_04.png)
 But it is there! What a pity...
-![](/images/changelog_01.png)
+![](/images/shadow_root_01.png)
 
 # Selenium can do it!
 Well, pure JavaScript can do it too, and Selenium uses those methods to achieve the same goal.
@@ -56,14 +56,14 @@ Let's first replicate that unsuccessful search with Selenium:
 webDriver.findElement(By.xpath("//span[@class='custom-option']"))
 {% endhighlight %} 
 The same result, no wonder
-![](/images/changelog_05.png)
+![](/images/shadow_root_05.png)
 
 Let's locate the div that contains that shadow-root element:
 {% highlight java %}
 webDriver.findElement(By.id("my-shadow-root"))
 {% endhighlight %} 
 At least that one is found.
-![](/images/changelog_06.png)
+![](/images/shadow_root_06.png)
 
 There is a method, called "getShadowRoot()" that can give you a root element of the inner structure:
 {% highlight java %}
@@ -74,7 +74,7 @@ Now, we can continue our search as we are "inside" a regular WebElement.
 {% highlight java %}
 webDriver.findElement(By.id("my-shadow-root")).getShadowRoot().findElements(By.className("custom-option"))
 {% endhighlight %} 
-![](/images/changelog_07.png)
+![](/images/shadow_root_07.png)
 
 Pay attention, that not all "By.*" methods work fine inside a shadow-root. For the moment (Apr'2023), only by class and by id are working.
 
