@@ -18,6 +18,7 @@ In the normal deployment workflow, new versions of software are deployed in the 
 3. QA
 4. UAT
 5. PROD
+
 So, one can see version 1.3 in PROD, while UAT has 1.4, QA - 1.5, SIT - 1.6 and DEV 2.0. Numbers may differ, there can be larger gaps between versions, but I guess you've got the point. Whenever testing is done in an environment, its version is deployed to a higher environment and is replaced by a "ready-to-deploy" version from a lower one.
 
 What can go wrong in this scheme? Testers (including end users) can find a defect in any environment. And developers will quickly produce a hotfix that should be tested as well. But what if there is ongoing testing in a certain environment that cannot be stopped (to deploy an updated version)? Right, that fixed version will be deployed elsewhere, to another environment. And if we have a lack of them, a mess will start!
