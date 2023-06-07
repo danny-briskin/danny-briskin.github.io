@@ -10,18 +10,19 @@ Danny Briskin, Quality Engineering Practice Manager
 
 
 # The issue
-There are no applications that do not fail. The reason of failure may vary but whether it is a code, logic, data, or environment issue, it must be located somehow. Not all failures require a change but how to distinguish one from another? 
-Usually, developers use consice messages with possible reasons of failure. Even if your application has produced a [BSoD](https://en.wikipedia.org/wiki/Blue_screen_of_death), there is still some information to consider. But those messages (in the best case) can only say about the current situation (a failure) and cannot return in time and tell you about system's state before the crash.
+In the realm of software applications, failures are inevitable. The causes of these failures may vary, ranging from issues in the code, logic, data, or the environment itself. However, it is essential to identify the root cause of each failure. While not all failures necessitate immediate changes, distinguishing between different types of failures is crucial.
 
-# Logging? In test automation? What is that?
-Logs are not a modern day invention, of course. They appeared almost at the same time when modern computers did. But for some reason software developers, and especially software-developers-in-test (SDETs) often omit proper logging in their applications. That is weird, according to my experience, SDETs' products - a test automation - are more often to fail than "regular" applications. When they have a failure they just repeat the test scenario in the hope (sometimes futile) that they can see the reason.
-Well, that is possible, for some small test cases that do not require a lot of preparation work. Those End-to-End tests failures are much harder to catch. What if your test suite is run during the night? How can you reproduce that nightly state of the system? 
+Typically, developers employ concise error messages that provide potential reasons for the failure. Even in the event of a Blue Screen of Death ([BSoD](https://en.wikipedia.org/wiki/Blue_screen_of_death)) occurrence, there is valuable information to consider. However, these messages, at best, only provide insights into the current failure situation. They cannot transport us back in time to reveal the state of the system prior to the crash.
+
+# Logging? In test automation? Really, why?
+While logs have been in existence since the advent of modern computers, it is peculiar that software developers, particularly those specializing in test automation (SDETs), frequently neglect the implementation of proper logging practices within their applications. In my experience, the products developed by SDETs, which encompass test automation frameworks, exhibit a higher likelihood of encountering failures compared to "regular" applications. When confronted with a failure, the common approach is to repeat the test scenario in the hopes of identifying the underlying cause. Although this may prove effective for small test cases that require minimal preparatory work, it becomes considerably more challenging to identify failures in comprehensive End-to-End tests. Consider the scenario where the test suite is executed overnight. How can one accurately reproduce the state of the system during that specific nightly run?
 
 # Log everything!
-Try to incorporate logging into your application as early as possible. Leave log messages in every major point of the code, especially where you can expect failures. Do it in places of major logic branching as well. If your testing has a visual component (e.g., desktop, mobile or web test), add proper screenshots to logs. It is not an easy task to organize this kind of logging, but you can do a lot of things automatically. See this [article](https://danny-briskin.github.io/java/2020/08/01/how-to-get-rid-of-boilerplate-code-adding-more-flexibility-with-aop.html) for more details about AOP logging.
+Implement comprehensive logging in your application from the early stages of development. Ensure that log messages are included at significant points in the code, particularly where failures are anticipated. Additionally, incorporate logging at key junctures in the logic branching. If your testing involves a visual component, such as desktop, mobile, or web tests, consider adding relevant screenshots to the logs. Although organizing this sort of logging can be challenging, you can automate many aspects of the process. For further insights on AOP logging and how it can help streamline logging efforts, refer to this informative [article](https://danny-briskin.github.io/java/2020/08/01/how-to-get-rid-of-boilerplate-code-adding-more-flexibility-with-aop.html).
+
 
 # ... but be flexible ...
-All modern logging frameworks provide a lot of configuration options to set up logging. You can choose  what, when, how and where to log. Make sure your logs contain all information needed to investigate possible failure. You can always set up own mnemonics to display certain events. For example 
+In contemporary logging frameworks, there is an abundance of configuration options available to establish logging setups. This allows for precise control over what information is logged, when it is logged, how it is logged, and where it is logged. It is essential to ensure that the logs encompass all the necessary information required for investigating potential failures. You can customize and define your own mnemonic codes to represent specific events, facilitating easier interpretation. For instance:
 {% highlight log %}
 [oo] Starting scenario [Scenario Name]
 [>>] ClassName::methodName1(parameterValue1, (ParameterClass2))
@@ -32,16 +33,16 @@ All modern logging frameworks provide a lot of configuration options to set up l
 [><] Finishing scenario [Scenario Name]
 {% endhighlight %}
 
-where "[oo]" is starting point, "[><]"" - exit point, "[>>], [<<]" - method call and finish, "[0<]" - returned value.
+In the above example, "[oo]" indicates the starting point, "[><]" - the exit point, "[>>]" and "[<<]" - method calls and exits respectively, while "[o<]" is for returned value.
 
-Also, don't forget to include the exact date and time of log event. Log level wil be in handy too.
+Additionally, it is imperative to include the precise date and time of each log event. The log level can also be of great assistance. For instance:
 {% highlight log %}
 D 20230221050902892    
 {% endhighlight %}
-Where "D" is for "DEBUG", a log level used, and the date is in format "YYYYMMDDHH24MISSZZZ" that is very useful when you need to sort date in natural way.
+In this example, "D" denotes the log level "DEBUG", which was used, and the date is formatted as "YYYYMMDDHH24MISSZZZ". This format proves highly useful when sorting dates in a natural manner.
 
 # ... do level it up ...
-And, yes, I have mentioned log levels. That is a very important notion in logging. Always make your logging level dependent, so you can run the same code with different log levels and see a different output in logs. For example 
+Furthermore, it is essential to consider log levels, as they play a crucial role in logging. Implementing a dynamic logging level system allows the code to generate different outputs in the logs based on the specified level. For instance: 
 {% highlight log %}
 TRACE 20230221050902892 [>>] ClassName::methodName1(parameterValue1, (ParameterClass2))
 DEBUG 20230221050902892 [o<] [returnedValue] <== ClassName::methodName2() 
@@ -49,14 +50,14 @@ WARN  20230221050902892 [* ] [returnedValue] is negative!
 ERROR 20230221050402892 [* ] [returnedValue] does not meet given criteria (-3<=value<=0)!
 CRIT  20230221050902892 [* ] browser quits unexpectedly
 {% endhighlight %}
-If your current log level is WARN, you will see only WARN and higher levels (ERROR and CRIT) messages.
+If the current log level is set to WARN, only messages with WARN level or higher (ERROR and CRIT) will be displayed.
 
-Passing a log level from outside the application is a good practice as well.
+It is also considered good practice to pass thelog level from outside the application.
 
 # ... because it is expensive sometimes.
-When you have set up logging in your application, it is not time to have a rest. First, you need to monitor your logs during a certain period. How many lines are produced during a day? Is that information really needed after a specific period (a week? a month?). How much performance is spent for logging?
-For example, adding logging to a specific point has increased execution time twice and produced extra 100Mb logs a day. 
-Most logging frameworks provide options to automatically archive and/or old logs, do not overlook that.
+Once logging is integrated into the application, the process does not end there. It is crucial to actively monitor the logs over a specified period. Questions such as the number of lines generated per day and the continued necessity of this information after a certain period (e.g., a week or a month) need to be addressed. Additionally, it is vital to evaluate the performance impact of logging. For example, introducing logging at a specific point may result in a doubling of execution time and the generation of an additional 100MB of logs per day.
+
+Most logging frameworks offer features to automatically archive or manage old logs, and it is important not to overlook these capabilities.
 
 # Summary
-Logs are easy to set up and they can save you tons of time and effort researching the root cause of a failure of your test framework. Make logs a part of your initial architecture and enjoy the outcome! 
+Incorporating logs into your initial architecture can offer significant benefits by saving substantial time and effort required to investigate the underlying cause of test framework failures. Establishing an efficient log setup can prove invaluable, ensuring comprehensive visibility into the test execution process. By making logs an integral component of your framework design, you can enhance troubleshooting capabilities and reap the favorable outcomes that result from this proactive approach.
