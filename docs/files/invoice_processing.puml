@@ -1,0 +1,54 @@
+@startuml Invoicing
+!theme toy
+start
+group Initialization. Cleaning possible errors.
+:Try to run **faTransactionServiceTrial** request;
+if (faTransactionServiceTrial failed?) then (<color:red>yes)
+  :<color:red>Delete</color> **P** status records from rdr_sxm_feed;
+else (<color:green>no)
+endif
+end group
+group Invoice preparation
+fork
+  :Generate **Invoice** file;
+fork again
+  :Load static **Invoice** file;
+end fork {or}
+:Save **Invoice Id" value;
+while (For ID in Invoice file)
+  :Send **RDR** request with respect of 29th day;
+  note right
+    If Today is less 29th of the month
+    RDR will be sent with Today's date,
+    otherwise - it will be 1st day of the **next** month
+    ====
+    see <b>Utilities#getNon29thDate()</b>
+  end note
+endwhile
+fork
+#9c9c9c://Optionally// change data in the **Invoice** file;
+fork again
+end fork {or}
+end group
+group Invoice processing
+:Send **POST** request to webservice **faTransactionServiceTrial** ;
+:**Upload** Invoice file to FTP server;
+:Send **POST** request to **invoiceFeed**;
+end group
+group Invoice web page verification
+:"Reconciliation " **/invoice** web page is displayed with **ADMIN** credentials;
+:Fill "Invoice #" field with the **Invoice Id** value;
+:Uncheck **NOT SUBMITTED** checkbox;
+:Press **SEARCH** button;
+:One Invoice row with <color:blue>**BLUE**</color> icon was found;
+:**Click** on invoice number link;
+:Uncheck **WITH DISCREPANCY ONLY** checkbox on the next page;
+:Press **SEARCH** button;
+:User **can see** IDs from the invoice file in **ID** column;
+end group
+group Tear down
+:<color:red>Delete</color> data about all Invoices from given file in the database;
+end group
+end
+
+@enduml

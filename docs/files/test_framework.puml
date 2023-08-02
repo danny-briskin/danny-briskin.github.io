@@ -1,0 +1,56 @@
+@startuml
+'https://plantuml.com/component-diagram
+!theme blueprint
+
+
+skinparam package {
+  borderColor orange
+  FontName Courier
+}
+skinparam database {
+  backgroundColor blue
+}
+
+package "Virtual Machine environment" {
+  component [Jenkins CI] as jenkins
+  component [Java Development Kit (ver. 17)] as java17
+  component [Email Server] as local_email
+  database "Redis in-memory DB" as redis
+}
+
+package "System under test" {
+  database "MS/SQL" as esp_db
+  component [FTP/SFTP servers] as ftp
+  component [REST/SOAP endpoints] as endpoints
+  component [IBM MQ] as mq
+  component [Website] as website
+}
+
+package "Test Automation Framework" {
+  component [Junit/TestNG] as junit
+  component [Cucumber] as cucumber
+  package "Page objects" {
+      component [Page Object 1]
+      component [Page Object 2]
+      component [Page Object ...]
+      component [Page Object N]
+  }
+  component [Spring Data] as spring_data
+  component [Spring Framework] as spring
+  component [Selenium] as selenium
+
+  junit <-> cucumber
+  junit <-> spring
+
+  spring <-> spring_data
+  spring_data <-> redis
+  spring_data <-> esp_db
+
+  "Page objects" <-> selenium
+  "Page objects" <-> spring
+}
+
+"Test Automation Framework" -d.> "System under test":tests
+"Test Automation Framework" -u-> "Virtual Machine environment":runs in
+
+@enduml
