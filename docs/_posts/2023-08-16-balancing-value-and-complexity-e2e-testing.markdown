@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Test Automation Scope: Balancing Value and Complexity with End-to-End Testing"
-date:   2023-08-16 14:40:30 -0400
+date:   2023-08-16 07:40:30 -0400
 categories: testing 
 tags: testing, e2e, automation
 ---
