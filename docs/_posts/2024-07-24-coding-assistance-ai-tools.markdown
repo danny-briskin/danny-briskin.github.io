@@ -17,20 +17,20 @@ Are those tools really that powerful? Let's figure that out.
 
 # AI powered tools 
 There are plenty of tools that can be used for software development process, starting from idea generation to code generation and testing. Here is a list of most know ones
-* Tools for ideas generation and concepts creation
-** [ChatGPT](https://openai.com/chatgpt/) - a universal assistant
-** [GlueCharm](https://gluecharm.com/) - user story creation tool
-** [Frase](https://www.frase.io/) - website content generation
-** [Miro](https://miro.com/product-overview/) - product diagramming and prototyping 
-* Tools for coding assistance
-** [Copilot](https://copilot.microsoft.com/) - code completion tool
-** [ChatGPT models](https://openai.com/chatgpt/) - some models for code generation
-** [Gemini](https://gemini.google.com/) - text generation tool
-** [Vertex AI](https://cloud.google.com/vertex-ai) - code and text generation tool
-** [Gemini Code Assist](https://cloud.google.com/products/gemini/code-assist) - code generation
-** [Llama](https://github.com/meta-llama/llama/tree/main) - code and text generation
-** [Tabnine](https://www.tabnine.com/) - code completion 
-** [Codeium](https://codeium.com) - code and text generation
+- Tools for ideas generation and concepts creation
+  - [ChatGPT](https://openai.com/chatgpt/) - a universal assistant
+  - [GlueCharm](https://gluecharm.com/) - user story creation tool
+  - [Frase](https://www.frase.io/) - website content generation
+  - [Miro](https://miro.com/product-overview/) - product diagramming and prototyping 
+- Tools for coding assistance
+  - [Copilot](https://copilot.microsoft.com/) - code completion tool
+  - [ChatGPT models](https://openai.com/chatgpt/) - some models for code generation
+  - [Gemini](https://gemini.google.com/) - text generation tool
+  - [Vertex AI](https://cloud.google.com/vertex-ai) - code and text generation tool
+  - [Gemini Code Assist](https://cloud.google.com/products/gemini/code-assist) - code generation
+  - [Llama](https://github.com/meta-llama/llama/tree/main) - code and text generation
+  - [Tabnine](https://www.tabnine.com/) - code completion 
+  - [Codeium](https://codeium.com) - code and text generation
 
 In this article I will concentrate on coding assistance tools only.
 
@@ -44,11 +44,11 @@ AI coding tools have become an integral part of modern software development, off
 * **Specific Use Cases:**
 ** **Function Documentation and Comments:** AI tools are extremely useful for generating javadoc, docstrings, and in-code comments, especially for non-native English speakers.
 ** **Code Predictions:** These tools are helpful for generating boilerplate code, but when the code is supposed to be more sophisticated, the usefulness of tools becomes questionable.
-** **Code Completion:** AI code completion is useful but built-in IDE code completion tools are currently more robust and faster.
-**	**Git Commit Messages:** Some tools can analyze changes between commits, though they are not very robust.
-** **Code Explanation:** AI tools provide valuable insights for junior developers, making them very useful in this aspect.
-** **Unit Test Generation:** Many tools excel in generating unit tests, offering great value there.
-** **Code refactoring:** - tools are quite useful, but developer needs to put a lot of efforts to explain what is needed and the result is questionable in most cases.
+  * **Code Completion:** AI code completion is useful but built-in IDE code completion tools are currently more robust and faster.
+  *	**Git Commit Messages:** Some tools can analyze changes between commits, though they are not very robust.
+  * **Code Explanation:** AI tools provide valuable insights for junior developers, making them very useful in this aspect.
+  * **Unit Test Generation:** Many tools excel in generating unit tests, offering great value there.
+  * **Code refactoring:** - tools are quite useful, but developer needs to put a lot of efforts to explain what is needed and the result is questionable in most cases.
 
 
 # Cons of AI Tool Usage
