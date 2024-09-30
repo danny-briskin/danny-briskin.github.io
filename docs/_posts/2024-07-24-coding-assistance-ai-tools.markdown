@@ -42,8 +42,8 @@ AI coding tools have become an integral part of modern software development, off
 * **Contextual Suggestions:** AI tools utilize predefined models and analyze your codebase, including comments, to provide context-aware suggestions.
 * **Security:** Many AI tools are tested for security compliance and have relevant certifications.
 * **Specific Use Cases:**
-** **Function Documentation and Comments:** AI tools are extremely useful for generating javadoc, docstrings, and in-code comments, especially for non-native English speakers.
-** **Code Predictions:** These tools are helpful for generating boilerplate code, but when the code is supposed to be more sophisticated, the usefulness of tools becomes questionable.
+  * **Function Documentation and Comments:** AI tools are extremely useful for generating javadoc, docstrings, and in-code comments, especially for non-native English speakers.
+  * **Code Predictions:** These tools are helpful for generating boilerplate code, but when the code is supposed to be more sophisticated, the usefulness of tools becomes questionable.
   * **Code Completion:** AI code completion is useful but built-in IDE code completion tools are currently more robust and faster.
   *	**Git Commit Messages:** Some tools can analyze changes between commits, though they are not very robust.
   * **Code Explanation:** AI tools provide valuable insights for junior developers, making them very useful in this aspect.
