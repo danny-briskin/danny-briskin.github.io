@@ -131,7 +131,7 @@ Here you are (that’s right, it’s a carbon copy):
 ![refactoring](/images/code_assistance_19.jpg)
 
 Even a straightforward call to an existing function from the same file results in complete guesswork from the AI, as if it is uncertain about the expected outcome. For example:
-{% highlight %}
+{% highlight text%}
 Using the rest_request function from this file, send a POST request to http://localhost:8080/endpoint with payload {"onekey": "twovalue"}
 {% endhighlight %}
 ![refactoring](/images/code_assistance_21.jpg)
