@@ -9,7 +9,6 @@ tags: llm, AI, agents, ML, Algorithms
 
 Danny Briskin, Quality Engineering Practice Manager
 
-
 ## The Challenge: Limited Context Windows  
 Large Language Models (LLMs) such as GPT are reasoning-powerful, yet only have a limited context window (say, 8k-128k tokens depending on the model).  
 
@@ -23,7 +22,6 @@ you want to return the most relevant tests that already exist. However, you can�
 So, what do we do?
 We combine **classical ML/NLP algorithms** with LLMs to **pre-filter** first and then **reason**.  
 
----
 
 ## Step 1 – Topic Detection
 First, we extract the **topic** from the user’s query. This helps us match the query with the structure of existing tests.  
@@ -48,9 +46,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 cos_sim = cosine_similarity(X[-1], X[:-1])
 print(cos_sim)
 ```
-
 This gives us a first-pass ranking: **“test_login_failed_attempts”** is the winner.
----
 
 ## Step 2 – Candidate Filtering
 Knowing that the query subject is *“login/authentication”*, we filter the repository.  
@@ -88,8 +84,6 @@ test_login_success
 
 Now we have **candidates** instead of the entire repository.  
 
----
-
 ## Step 3 – LLM Refinement
 Finally, only run candidate tests through the LLM and allow it to **refine, filter, and suggest enhancements**:  
 
@@ -110,7 +104,6 @@ Question: Which tests are most relevant? Suggest if any coverage is missing.
 - Less relevant: `test_login_success`.  
 - Missing: A test for captcha bypass after repeated failures.  
 
----
 
 ## The Hybrid Workflow
 Putting it together:
@@ -148,14 +141,11 @@ This approach:
 - Ensures fast retrieval.  
 - Trades off on deterministic filtering and generative reasoning.  
 
----
-
 ## Why Not Just Use the LLM Alone?
 - **Context window limit** – you can’t put the whole test suite in.  
 - **Efficiency matters** – looping all tests through the LLM is expensive.  
 - **Reliability** – algorithms provide deterministic filtering before involving the LLM.  
 
----
 
 ## Generalizing Beyond Tests
 This pattern applies in many contexts:  
@@ -163,7 +153,6 @@ This pattern applies in many contexts:
 - Document retrieval (legal, medical, financial).  
 - Conversational memory management.  
 
----
 
 ## Conclusion
 Traditional ML/NLP algorithms are still important - they make LLMs practical in real-world systems.  
