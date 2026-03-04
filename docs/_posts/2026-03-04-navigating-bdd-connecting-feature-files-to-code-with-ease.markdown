@@ -64,7 +64,7 @@ One of the most annoying bugs in other tools is "navigation drift" - where you c
 * **Handling Systems**: Different computers save files in different ways (specifically how they handle "enters" or line breaks). This extension handles both Windows and Mac styles perfectly.
 * **The Control-Click**: Because of this precision, you can simply **Control-Click** (or press **F12**) on any step. The extension checks its map and takes you straight to the implementation.
 
-![Gherkin Navigator Demo](./images/GherkinNavigator.gif)
+![Gherkin Navigator Demo](/images/GherkinNavigator.gif)
 
 ---
 
@@ -76,6 +76,6 @@ I also wanted to make sure the test files themselves stayed easy to read.
 * **Great Colors**: It uses colors to highlight variables, tags, and comments. This makes it easy to spot mistakes before you even run your tests.
 * **Perfect Spacing**: It fixes the indentation of your text (moving Scenarios and Steps to the right spots) so everything looks professional.
 
-![Gherkin Formatter Demo](./images/GherkinFormatter.gif)
+![Gherkin Formatter Demo](/images/GherkinFormatter.gif)
 
 **Gherkin Step Navigator** is out now on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=DannyBriskin.gherkin-step-navigator). If you want to help me improve it, come visit the [GitHub project](https://github.com/danny-briskin/gherkin-step-navigator).
