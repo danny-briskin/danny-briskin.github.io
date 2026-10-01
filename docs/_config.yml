@@ -18,8 +18,8 @@ email: sql.coach.kiev@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Articles about Information Technologies by Danny Briskin
 baseurl: "" # the subpath of your site, e.g. /blog
-domain: danny-briskin.github.io
-url: "https://danny-briskin.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+domain: danny-briskin.ca
+url: "https://danny-briskin.ca/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  danny-briskin
 linkedin_username: briskin
