@@ -43,17 +43,18 @@
       </footer>
     </section>
 
-    {% if site.google_analytics %}
-       <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '{{ site.google_analytics }}'
-             , { cookie_domain: 'danny-briskin.github.io',
-          cookie_flags: 'SameSite=None;Secure' });
-</script>
-    {% endif %}
+{% if site.google_analytics %}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{{ site.google_analytics }}', {
+      'transport_type': 'beacon'
+    });
+  </script>
+{% endif %}
   </body>
 </html>
